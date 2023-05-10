@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>스위치조명</title>
+<script>
+//스위치 버튼을 누르면, 반대 이미지로 변환하기
+//문서내의 pic이라는 요소의 src속성을 반대 이미지로 교체
+let x="off";
+let flag=false;
+function turn(){
+	//x=삼항연산자로 on,off올지를 결정;
+	x= (flag)? "on":"off";
+	document.getElementById("pic").src="../images/"+x+".png";
+	flag=!flag; //써먹었던 변수를 뒤집기
+}
+</script>
+<style>
+#wrapper{
+	width:600px;
+	height:500px;
+	background:yellow;
+	margin:auto;
+	display:hidden; /*자식요소들이 float으로 떠 있을 경우 , 바깥쪽 부모요소는 자식에 대한 display속성을 hidden으로 주어야 한다(퍼블리싱 원칙)*/
+
+}
+#sw{
+	width:50px;
+	height:100%;
+	background:skyblue;
+	float:left;
+}
+#room{
+	width:550px;
+	height:100%;
+	background:red;
+	float:left;
+}
+#sw img{
+	width:40px;
+}
+#room img{
+	widdth:550px;
+	height:500px;
+}
+</style>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="sw">
+			<img src="../images/on.png" onClick="turn()" id="pic">
+		</div>
+		<div id="room"><img src="../images/room.jpg"></div>
+
+	</div>
+</body>
+</html>
